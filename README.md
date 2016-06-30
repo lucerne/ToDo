@@ -18,15 +18,17 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 * [ ] Persist the todo items [into SQLite](http://guides.codepath.com/android/Persisting-Data-to-the-Device#sqlite) instead of a text file
-* [ ] Improve style of the todo items in the list [using a custom adapter](http://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView)
+* [x] Improve style of the todo items in the list [using a custom adapter](http://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView)
 * [ ] Add support for completion due dates for todo items (and display within listview item)
 * [ ] Use a [DialogFragment](http://guides.codepath.com/android/Using-DialogFragment) instead of new Activity for editing items
 * [ ] Add support for selecting the priority of each todo item (and display in listview item)
-* [ ] Tweak the style improving the UI / UX, play with colors, images or backgrounds
+* [x] Tweak the style improving the UI / UX, play with colors, images or backgrounds
 
 The following **additional** features are implemented:
 
 * [ ] List anything else that you can get done to improve the app functionality!
+
+These includes using Spinner class for priority, button in the action bar, and grid layout for detailed todo item view. 
 
 ## Video Walkthrough 
 
@@ -34,12 +36,14 @@ Here's a walkthrough of implemented user stories:
 
 <img src='http://imgur.com/BjKPAGo.gif' title='Video Walkthrough' style="max-width:100%;" alt='Video Walkthrough' />
 
+<img src='http://imgur.com/iOA18jx.gif' title='Video Walkthrough 2' style="max-width:100%;" alt='Video Walkthrough 2' />
+
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Describe any challenges encountered while building the app. Challenges are getting persistent data to work with the custom adapter. It was difficult to resolve dependencies while trying to get SQLite to work. 
 
 ## License
 
