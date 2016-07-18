@@ -34,12 +34,13 @@ These includes using Spinner class for priority, button in the action bar, and g
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://imgur.com/BjKPAGo.gif' title='Video Walkthrough' style="max-width:100%;" alt='Video Walkthrough' />
+<!-- <img src='http://imgur.com/BjKPAGo.gif' title='Video Walkthrough' style="max-width:100%;" alt='Video Walkthrough' />
 
 <img src='http://imgur.com/iOA18jx.gif' title='Video Walkthrough 2' style="max-width:100%;" alt='Video Walkthrough 2' />
 
-<img src='http://imgur.com/mh14d5n.gif' title='Video Walkthrough 2' style="max-width:100%;" alt='Video Walkthrough 3' />
+<img src='http://imgur.com/mh14d5n.gif' title='Video Walkthrough 3' style="max-width:100%;" alt='Video Walkthrough 3' /> -->
 
+<img src='http://imgur.com/iV3GcSF.gif' title='Video Walkthrough 4' style="max-width:100%;" alt='Video Walkthrough 4' /> 
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
