@@ -1,7 +1,5 @@
 package com.example.lucerne.todo;
 
-import com.example.lucerne.todo.R;
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -41,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Find the toolbar view inside the activity layout
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         // Sets the Toolbar to act as the ActionBar for this Activity window.
-        // Make sure the toolbar exists in the activity and is not null
         setSupportActionBar(toolbar);
 
         // read saved items from disk
@@ -83,21 +81,6 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
-//    public void onAddItem(View view) {
-//        Calendar c = Calendar.getInstance();
-//        System.out.println("Current time => " + c.getTime());
-//
-//        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-//        String formattedDate = df.format(c.getTime());
-//
-//        Todo newtodo = new Todo("", "", "", "", formattedDate);
-//        adapter.add(newtodo);
-//        writeItems();
-//        idx = todos.size()-1;
-//
-//        launchComposeView(newtodo);
-//    }
 
     // To be replaced with SQLite
     private void writeItems() {

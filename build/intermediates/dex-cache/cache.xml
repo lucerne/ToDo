@@ -2,11 +2,88 @@
 <items version="2" >
 
     <item
+        jar="/Users/lucerne/Android/Pre-Projects/ToDo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
+        <dex dex="/Users/lucerne/Android/Pre-Projects/ToDo/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-8.1.0_72e6c79af3048cfc097d24d065d85815aa0c9aa5/classes.dex" />
+    </item>
+    <item
+        jar="/Users/lucerne/.gradle/caches/modules-2/files-2.1/com.michaelpardo/activeandroid/3.1.0-SNAPSHOT/4ab7b0182975bc57c49efc5e0b3baa4a10e4ec08/activeandroid-3.1.0-SNAPSHOT.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="4ab7b0182975bc57c49efc5e0b3baa4a10e4ec08">
+        <dex dex="/Users/lucerne/Android/Pre-Projects/ToDo/app/build/intermediates/transforms/dex/debug/folders/1000/10/activeandroid-3.1.0-SNAPSHOT_b0e61a1291d582a7ae9f3e7d7661fe919927d370/classes.dex" />
+    </item>
+    <item
+        jar="/Users/lucerne/Android/Pre-Projects/ToDo/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="/Users/lucerne/Android/Pre-Projects/ToDo/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.4.0_f3a916d968e215f4b53d9b0e1a64971a1bbc4f20/classes.dex" />
+    </item>
+    <item
+        jar="/Users/lucerne/Android/Pre-Projects/ToDo/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/Users/lucerne/Android/Pre-Projects/ToDo/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_f2efb31dbc02d5e83a66ae2d3239e20c514749e3/classes.dex" />
+    </item>
+    <item
+        jar="/Users/lucerne/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="/Users/lucerne/Android/Pre-Projects/ToDo/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.4.0_b27fba709e1633c0665a5c7b2cfab49014b48e61/classes.dex" />
+    </item>
+    <item
+        jar="/Users/lucerne/Android/Pre-Projects/ToDo/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/8.1.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
+        <dex dex="/Users/lucerne/Android/Pre-Projects/ToDo/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-appindexing-8.1.0_7635752dde19ac940c026649d6e913e7466269b0/classes.dex" />
+    </item>
+    <item
         jar="/Users/lucerne/Android/Pre-Projects/ToDo/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.3"
-        sha1="553dc42b5344cd8a2351de6ceadbeaa6dc580216">
+        sha1="9f12ee9d9309091d543d7ea7bd84e958c8261693">
         <dex dex="/Users/lucerne/Android/Pre-Projects/ToDo/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_3b4a0becdc7e593bc323129ce48dd86f7265a17b/classes.dex" />
+    </item>
+    <item
+        jar="/Applications/Android Studio.app/Contents/gradle/m2repository/commons-io/commons-io/2.4/commons-io-2.4.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
+        <dex dex="/Users/lucerne/Android/Pre-Projects/ToDo/app/build/intermediates/transforms/dex/debug/folders/1000/10/commons-io-2.4_db9d9c7f5dc9abc44c05f9a56b43532b2a4af315/classes.dex" />
+    </item>
+    <item
+        jar="/Users/lucerne/Android/Pre-Projects/ToDo/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="bfb7a7dd2c0be3b69c8054cd75e1b4020b3ed33f">
+        <dex dex="/Users/lucerne/Android/Pre-Projects/ToDo/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_6a15dc55d7ea82ad04901b0915ab150d32a85136/classes.dex" />
+    </item>
+    <item
+        jar="/Users/lucerne/Android/Pre-Projects/ToDo/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/Users/lucerne/Android/Pre-Projects/ToDo/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.4.0_003fd1630d05d9a975f3d78860156c6bb9e23840/classes.dex" />
+    </item>
+    <item
+        jar="/Users/lucerne/Android/Pre-Projects/ToDo/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/Users/lucerne/Android/Pre-Projects/ToDo/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_e6cb0127b38c3361704b71a22498e48919003a01/classes.dex" />
+    </item>
+    <item
+        jar="/Users/lucerne/Android/Pre-Projects/ToDo/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/Users/lucerne/Android/Pre-Projects/ToDo/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.4.0_f376e52459ef27ae2a7c1eee15571bd96274963b/classes.dex" />
     </item>
 
 </items>
