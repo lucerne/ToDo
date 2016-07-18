@@ -1,0 +1,12 @@
+<!-- Menu file for `activity_movies.xml` is located in a file
+     such as `res/menu/menu_movies.xml`  -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/miSave"
+        android:icon="@drawable/ic_system_update_alt_black_24dp"
+        app:showAsAction="ifRoom"
+        android:onClick="onSaveItem"
+        android:title="Save">
+    </item>
+</menu>

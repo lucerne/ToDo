@@ -1,160 +1,220 @@
 package com.example.lucerne.todo;
 
+import com.example.lucerne.todo.R;
+import android.app.ActionBar;
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
 
-import org.apache.commons.io.FileUtils;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
+import java.util.Calendar;
+import java.util.List;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
-    ArrayList<String> todoItems;
 
-    ArrayList<TodoTask> todoTasks;
-//    ArrayList<ItemAdapter> itemAdapter;
-    ItemAdapter itemAdapter;
-
-    ArrayAdapter<String> todoAdapter;
-    ListView lvItems;
-    EditText etEditText;
-    int idxText;
+    private ArrayList<Todo> todos = new ArrayList<>();
+    ArrayAdapter<Todo> adapter;
+    int idx;
     private final int REQUEST_CODE = 1;
-//    Priority high;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Find the toolbar view inside the activity layout
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        // Sets the Toolbar to act as the ActionBar for this Activity window.
+        // Make sure the toolbar exists in the activity and is not null
+        setSupportActionBar(toolbar);
+
+        // read saved items from disk
         populateArrayItems();
-        lvItems = (ListView) findViewById(R.id.lvItems);
-        lvItems.setAdapter(todoAdapter);
-        etEditText = (EditText) findViewById(R.id.etEditText);
 
-//        todoTasks = new ArrayList<TodoTask>();
+        //create our new array adapter
+        adapter = new todoArrayAdapter(this, R.layout.custom_list, todos);
 
-//        System.out.println("etEditText ");
-//        System.out.println(etEditText);
 
-        lvItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        //Find list view and bind it with the custom adapter
+        ListView listView = (ListView) findViewById(R.id.customListView);
+        listView.setAdapter(adapter);
+
+        // Delete
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                todoItems.remove(position);
-                todoAdapter.notifyDataSetChanged();
-//                itemAdapter.notifyDataSetChanged();
+                todos.remove(position);
+                adapter.notifyDataSetChanged();
                 writeItems();
                 return true;
             }
         });
 
-        lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        // Launch detailed view
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                idxText = position;
-                launchComposeView();
+                idx = position;
+                launchComposeView(todos.get(idx));
             }
         });
-
-
-// Create a category
-//        high = new Priority();
-//        high.remoteId = 1;
-//        high.name = "High";
-//        high.save();
-
     }
 
-    public void populateArrayItems() {
-        readItems();
-        todoAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, todoItems);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
-//        itemAdapter = new ItemAdapter(this, todoTasks);
-//        ListView listView = (ListView) findViewById(R.id.lvItems);
-//        listView.setAdapter(itemAdapter);
+//    public void onAddItem(View view) {
+//        Calendar c = Calendar.getInstance();
+//        System.out.println("Current time => " + c.getTime());
 //
-//        itemAdapter.addAll(todoTasks);
-    }
+//        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+//        String formattedDate = df.format(c.getTime());
+//
+//        Todo newtodo = new Todo("", "", "", "", formattedDate);
+//        adapter.add(newtodo);
+//        writeItems();
+//        idx = todos.size()-1;
+//
+//        launchComposeView(newtodo);
+//    }
 
-    private void readItems() {
-        File filesDir = getFilesDir();
-        File file = new File(filesDir, "todo.txt");
-        try {
-            todoItems = new ArrayList<String>(FileUtils.readLines(file));
-        } catch (IOException e) {
-
-        }
-    }
-
-
+    // To be replaced with SQLite
     private void writeItems() {
-        File filesDir = getFilesDir();
-        File file = new File(filesDir, "todo.txt");
-        try {
-            FileUtils.writeLines(file, todoItems);
-        } catch (IOException e) {
+    }
 
+    // To be replaced with SQLite
+    private void readItems() {
+    }
+
+    // To be replaced with SQLite
+    public void populateArrayItems() {
+    }
+
+    //custom ArrayAdapter
+    class todoArrayAdapter extends ArrayAdapter<Todo> {
+
+        private Context context;
+        private List<Todo> todos;
+
+        //constructor, call on creation
+        public todoArrayAdapter(Context context, int resource, ArrayList<Todo> objects) {
+            super(context, resource, objects);
+
+            this.context = context;
+            this.todos = objects;
+        }
+
+        //called when rendering the list
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            //get the property we are displaying
+            Todo todo = todos.get(position);
+
+            //get the inflater and inflate the XML layout for each item
+            LayoutInflater inflater = (LayoutInflater)
+                    context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+            View view = inflater.inflate(R.layout.todo_layout, null);
+
+            TextView name = (TextView) view.findViewById(R.id.name);
+            TextView priority = (TextView) view.findViewById(R.id.priority);
+
+
+
+            //set address and description
+            name.setText(todo.getName());
+
+            String p = todo.getPriority();
+            priority.setText(p);
+            priority.setTextSize(15);
+            priority.setTypeface(null, Typeface.BOLD);
+
+            if (p.equals("HIGH")) {
+                priority.setTextColor(Color.parseColor("#e31a1c"));
+            }
+            else if (p.equals("MEDIUM")){
+                priority.setTextColor(Color.parseColor("#fd8d3c"));
+            }
+            else{
+                priority.setTextColor(Color.parseColor("#006d2c"));
+            }
+
+            return view;
         }
     }
 
-
-    public void onAddItem(View view) {
-//        TodoTask t = new TodoTask("a", "b", "c", "d", 1);
-//        itemAdapter.add(t);
-        todoAdapter.add(etEditText.getText().toString());
-        etEditText.setText("");
-        writeItems();
-
-//// Create an item
-//        TodoItem item = new TodoItem();
-//        item.remoteId = 1;
-////        item.priority = high;
-//        item.name = "Outback Steakhouse";
-//        item.save();
-
-
-    }
-
-
-    // ActivityOne.java
-    public void launchComposeView() {
+    public void launchComposeView(Todo t) {
         // first parameter is the context, second is the class of the activity to launch
-        Intent intent = new Intent(this, EditItemActivity.class);
-        intent.putExtra("original_text", todoItems.get(idxText).toString());
-
-//        TodoTask t = new TodoTask(0, "a", "b", "c");
-//        intent.putExtra("TodoTask", t);
+        Intent intent = new Intent(this, EditActivity.class);
+        intent.putExtra("Main", t);
         startActivityForResult(intent,REQUEST_CODE); // brings up the second activity
 
     }
 
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CODE && resultCode == RESULT_OK) {
-//            System.out.println(data.getData().toString());
-//            todoItems.set(idxText, data.getData().toString());
-            todoItems.set(idxText, data.getExtras().getString("item"));
-            todoAdapter.notifyDataSetChanged();
-//            itemAdapter.notifyDataSetChanged();
+            Todo u = (Todo) data.getSerializableExtra("Edit");
+            // memory leak?
+            System.out.print(u);
+            todos.set(idx, u);
+            adapter.notifyDataSetChanged();
             writeItems();
         }
     }
 
+
+    public static class CustomOnItemSelectedListener implements
+            AdapterView.OnItemSelectedListener {
+
+        public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+            Toast.makeText(parent.getContext(),
+                    "OnItemSelectedListener : " + parent.getItemAtPosition(pos).toString(),
+                    Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> arg0) {
+            // TODO Auto-generated method stub
+        }
+    }
+
+    public void onAddItem(MenuItem mi) {
+        // handle click here
+
+        Calendar c = Calendar.getInstance();
+        System.out.println("Current time => " + c.getTime());
+
+        SimpleDateFormat df = new SimpleDateFormat("MM-dd-yyyy");
+        String formattedDate = df.format(c.getTime());
+
+        Todo newtodo = new Todo("", "", "", "", formattedDate);
+        adapter.add(newtodo);
+        writeItems();
+        idx = todos.size()-1;
+
+        launchComposeView(newtodo);
+    }
+
 }
-
-
-
